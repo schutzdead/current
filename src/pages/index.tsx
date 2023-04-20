@@ -11,16 +11,16 @@ export default function Home() {
   const [isFlashLight, setIsFlashLight] = useState<boolean>(true)
 
   const divStyle = {
-    noOpacity:{
-      backgroundColor:'rgba(255, 255, 255, 0)',
-      boxShadow:'none'
+    noOpacity: {
+      backgroundColor: 'rgba(255, 255, 255, 0)',
+      boxShadow: 'none'
     },
-    reverseBG:{
-      backgroundColor:'white',
+    reverseBG: {
+      backgroundColor: 'white',
     }
   }
 
-  function isMoving (e:any) {
+  function isMoving(e: any) {
     if (!isFlashLight) return
     const lux = document.querySelector(".Home_lux__le22f") as HTMLElement
     lux.style.top = `calc(${e.pageY}px - 5.5vw)`;
@@ -28,57 +28,57 @@ export default function Home() {
     lux.style.backgroundColor = 'rgba(255,255,255,1)';
     lux.style.boxShadow = '0 0 30px 34px white'
   }
-  
-  function turnOn () {
+
+  function turnOn() {
     setIsFlashLight(false)
   }
 
-  if(!isFlashLight){
+  if (!isFlashLight) {
     return (
-    <>
-      <IsHead />
-      <FirstPage/>
-    </>)
+      <>
+        <IsHead />
+        <FirstPage />
+      </>)
   } else {
-  return (
-    <>
-      <IsHead />
-      <div className={styles.sail} onMouseMove={e => isMoving(e)} style={isFlashLight ? undefined : divStyle.reverseBG}>
+    return (
+      <>
+        <IsHead />
+        <div className={styles.sail} onMouseMove={e => isMoving(e)} style={isFlashLight ? undefined : divStyle.reverseBG}>
           <div className={styles.lux} style={isFlashLight ? undefined : divStyle.noOpacity}>
             <div className={styles.myElement}>
-                <h1>DEVELOPPEUR WEB</h1>
-                <footer className={styles.turnLight}>
-                  <div className={styles.turnSpan}>
-                    <span>Allumez la lumière !</span>
-                    <Image
-                      src={newArrow}
-                      alt=''
-                      className={styles.arrow}
-                    />
-                  </div>
-                  <button className={styles.switch} onClick={turnOn}>
-                    <Image
-                      src={Light}
-                      alt=''
-                      className={styles.light}
-                      />
-                  </button>
-                </footer>
+              <h1>DEVELOPPEUR WEB</h1>
+              <footer className={styles.turnLight}>
+                <div className={styles.turnSpan}>
+                  <span>Allumez la lumière !</span>
+                  <Image
+                    src={newArrow}
+                    alt=''
+                    className={styles.arrow}
+                  />
+                </div>
+                <button className={styles.switch} onClick={turnOn}>
+                  <Image
+                    src={Light}
+                    alt=''
+                    className={styles.light}
+                  />
+                </button>
+              </footer>
             </div>
           </div>
-      </div>
-    </>
-  )
+        </div>
+      </>
+    )
   }
 }
 
-function IsHead () {
-  return(
+function IsHead() {
+  return (
     <Head>
       <title>Lucas Soubry | Développeur web freelance</title>
       <meta name="description" content="my portfolio" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="icon" href="/favicon.ico" />
-  </Head>
+      <link rel="icon" href="/favicon.png" />
+    </Head>
   )
 }
