@@ -9,8 +9,6 @@ import TS from '../../../public/assets/LogoLanguage/ts.svg'
 import Prisma from '../../../public/assets/LogoLanguage/prisma.svg'
 import Next from '../../../public/assets/LogoLanguage/next.svg'
 import { carouselData } from '../Modal/data'
-import { useEffect, useRef, useState } from 'react'
-
 
 type card = {
     image:StaticImageData,
