@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lilita+One&family=Passion+One&display=swap');
 
 .thirdContainer{
     height: 100vh;
@@ -14,16 +13,12 @@
 }
 
 .thirdContainer>h1{
+    font-weight: 700;
     font-size: 45px;
-    font-family: 'Lilita One', cursive;
+    font-family: 'Roboto', sans-serif;
     place-self: center center;
     margin-top: 40px;
 }
-
-/* .thirdContainer>h1>u{
-    text-decoration-thickness: 3px;    
-    text-underline-offset:20px;
-} */
 
 .allProjects {
     font-family: 'Raleway', sans-serif;

@@ -86,9 +86,8 @@
     gap:6vw;
 }
 
-.navAbsolute>ul>li{
+.navAbsolute>ul>li, .navAbsolute>ul>a>li{
     cursor: pointer;
-    text-decoration: none;
     text-decoration: underline;
     text-underline-offset: 0.8rem;
     text-decoration-thickness: 2px;
@@ -97,7 +96,7 @@
     font-weight: 500;
 }
 
-.navAbsolute>ul>li:hover{
+.navAbsolute>ul>li:hover, .navAbsolute>ul>a>li:hover{
     text-decoration-color: white;
 }
 
@@ -288,6 +287,10 @@
     .navAbsolute{
         height: 100px;
         gap:20px;
+    }
+
+    .navAbsolute>ul>li:hover, .navAbsolute>ul>a>li:hover{
+        text-decoration-color: transparent;
     }
 
     .navAbsolute>p{

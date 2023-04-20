@@ -143,4 +143,8 @@
     .container>p{
         padding:9px 25px
     }
+
+    .project>div>span{
+        font-size: 17px;
+    }
 }

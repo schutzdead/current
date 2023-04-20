@@ -23,6 +23,8 @@ import Link from 'next/link'
 
 export default function FirstPage () {
 
+
+
     const[whatProject, setWhatProject] = useState(carouselData[1])
     const[displayScreen, setDisplayScreen] = useState(false)
 
@@ -33,6 +35,12 @@ export default function FirstPage () {
     
     const [isIntersecting, setIsIntersecting] = useState(false);
     const ref:any = useRef(null);
+
+    useEffect(() => {
+        if(innerWidth<1000){
+            setIsIntersecting(true);
+        }
+    })
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -69,8 +77,8 @@ export default function FirstPage () {
                     : { color:"white" }}>
             <p><Link href="#accueil">LUCAS<span>SOUBRY</span></Link></p>
             <ul>
-                <li><Link href="#services">Services</Link></li>
-                <li><Link href="#portfolio">Portfolio</Link></li>
+                <Link href="#services"><li>Services</li></Link>
+                <Link href="#portfolio"><li>Portfolio</li></Link>
                 <li onClick={() => setContact(true)}>Contact</li>
             </ul>
             <div className={styles.contact}
