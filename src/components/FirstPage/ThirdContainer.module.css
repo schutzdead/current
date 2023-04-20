@@ -64,6 +64,6 @@
 @media (max-width:500px) {
     .thirdContainer{
         margin-top: 0px;
-        scroll-margin: 0px;
+        scroll-margin: 40px;
     }
 }

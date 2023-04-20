@@ -7,11 +7,11 @@
     background-color: rgb(255, 255, 255,0.1);
     padding: 10px;
     border-radius: 10px;
-    transition: margin 500ms;
+    transition: transform 500ms;
 }
 
 .container:hover{
-    margin-top:-15px
+    transform: translateY(-15px);
 }
 
 .top{

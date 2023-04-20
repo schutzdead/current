@@ -37,9 +37,8 @@ export default function FirstPage () {
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                console.log(isIntersecting);
-                
-              setIsIntersecting(entry.isIntersecting);
+                if(innerWidth<1000) return            
+                setIsIntersecting(entry.isIntersecting);
             },
           );
           observer.observe(ref.current);
@@ -103,8 +102,8 @@ export default function FirstPage () {
                     </main>
                     <div className={styles.filter}></div>
                 </div>
-                <div className={style.secondContainer} id="services" ref={ref}>
-                    <section style={isIntersecting 
+                <div className={style.secondContainer} id="services">
+                    <section ref={ref} style={isIntersecting 
                              ? {opacity:1, transform:"translateX(0px)"} 
                              : {opacity:0, transform:"translateX(-100px)"}}>
                         <div className={style.profil} onClick={() => console.log(whatProject)}
