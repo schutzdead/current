@@ -9,7 +9,7 @@
     left: 0;
     display: flex;
     flex-direction: column;
-    gap:max(9vw);
+    gap:7vw;
     align-items: center;
     justify-content: center;
 }
@@ -25,7 +25,7 @@
 
 .secondContainer>section:nth-child(2){
     display: flex;
-    gap:7vw;
+    gap:60px 7vw;
     grid-row: 3/4;
     place-self: center center;
     transition: all 1s;
@@ -53,7 +53,7 @@
 }
 
 .profil>div>p{
-    font-size: clamp(16px, 1.5vw, 20px);
+    font-size: clamp(16px, 1.3vw, 18px);
     font-weight: 300;
     line-height: 28px;
 }
@@ -86,7 +86,7 @@
     white-space: nowrap;
     animation: defil 10s steps(8, end) infinite;
     display: flex;
-    max-height: 40px;
+    max-height: 50px;
 }
 
 @keyframes defil {
@@ -94,15 +94,9 @@
     100%{transform: translateX(0%);}
 }
 
-@media (max-width:1200px) {
-    .secondContainer{
-        gap:150px;
-    }
-}
-
 @media (max-width:1000px) {
-    .secondContainer>section:nth-child(1){
-        margin-top: 100px;
+    .secondContainer{
+        scroll-margin: 60px;
     }
 }
 

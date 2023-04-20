@@ -15,6 +15,7 @@ import Sushi from '../../../public/assets/sushi1.webp'
 import Form from '../../../public/assets/form/form1.webp'
 import Calcul from '../../../public/assets/calcul/calcul1.webp'
 import Etch from '../../../public/assets/etch/etch3.webp'
+import BGFirstContainer from '../../../public/assets/backgroundMain.webp'
 import { Card, Language, Projects, FirstCanva ,SecondCanva } from '../Gadgets/gadget'
 import { Modal } from '../Modal/modal'
 import { carouselData } from '../Modal/data'
@@ -54,6 +55,12 @@ export default function FirstPage () {
         setDelayHeader(false)
     }, 2000)
    
+    const divStyle = {
+        on:{ backgroundImage: `linear-gradient(rgb(0, 0, 0, 0.1), rgb(0, 0, 0, 0.1)), url(${BGFirstContainer.src})`,
+             color:"transparent" },
+        off:{ backgroundImage: `linear-gradient(rgb(0, 0, 0, 0.1), rgb(0, 0, 0, 0.1)), url(${BGFirstContainer.src})`,
+              color:"white" }
+    }
 
     return (
         <>
@@ -81,8 +88,8 @@ export default function FirstPage () {
                 <div    className={styles.container}
                         id='accueil'
                         style={delayCenter
-                            ? { color:"transparent" }
-                            : { color:"white" }}>
+                            ? divStyle.on
+                            : divStyle.off }>
                     <main>
                         <div>
                             <p  className={styles.spec}
@@ -135,7 +142,7 @@ export default function FirstPage () {
                     </section>
                 </div>
                 <div className={styl.thirdContainer} id='portfolio'>
-                    <h1>PR<u>OJE</u>TS</h1>
+                    <h1>PORTFOLIO</h1>
                     <div className={styl.allProjects}>
                         <Projects setDisplayScreen={setDisplayScreen} id={0} setWhatProject={setWhatProject} image={Meteo} text={"Application Météo"} canva={<FirstCanva />}/>
                         <Projects setDisplayScreen={setDisplayScreen} id={1} setWhatProject={setWhatProject} image={Butchery} text={"Boutique en ligne (Boucherie)"} canva={<FirstCanva />}/>

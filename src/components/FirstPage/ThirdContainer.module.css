@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lilita+One&family=Passion+One&display=swap');
 
 .thirdContainer{
     height: 100vh;
@@ -14,17 +14,16 @@
 }
 
 .thirdContainer>h1{
-    font-weight: 900;
     font-size: 45px;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Lilita One', cursive;
     place-self: center center;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
-.thirdContainer>h1>u{
+/* .thirdContainer>h1>u{
     text-decoration-thickness: 3px;    
     text-underline-offset:20px;
-}
+} */
 
 .allProjects {
     font-family: 'Raleway', sans-serif;
@@ -52,12 +51,13 @@
 @media (max-width:1000px) {
     .thirdContainer>h1{
         font-size: 35px;
-        margin-top: 30px;
+        margin-top: 0;
     }
 
     .thirdContainer{
-        scroll-margin: 50px;
-        height: auto
+        scroll-margin: 80px;
+        height: auto;
+        grid-template: 200px auto / 1fr;
     }
 }
 
