@@ -10,18 +10,60 @@
     right: 0;
     left: 0;
     display: grid;
-    grid-template: 200px repeat(3,1fr) / repeat(2,1fr);
+    grid-template: 250px auto / 1fr;
 }
 
 .thirdContainer>h1{
     font-weight: 900;
     font-size: 45px;
     font-family: 'Raleway', sans-serif;
-    grid-column: 1/3;
     place-self: center center;
+    margin-top: 50px;
 }
 
 .thirdContainer>h1>u{
     text-decoration-thickness: 3px;    
     text-underline-offset:20px;
+}
+
+.allProjects {
+    font-family: 'Raleway', sans-serif;
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+}
+
+.thirdContainer>div:last-child{
+    position: absolute;
+    left: 0;
+    bottom:0;
+    right:0;
+    z-index: 2;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+@media (max-width:1600px) {
+    .allProjects{
+        grid-template:none
+    }
+}
+
+@media (max-width:1000px) {
+    .thirdContainer>h1{
+        font-size: 35px;
+        margin-top: 30px;
+    }
+
+    .thirdContainer{
+        scroll-margin: 50px;
+        height: auto
+    }
+}
+
+@media (max-width:500px) {
+    .thirdContainer{
+        margin-top: 0px;
+        scroll-margin: 0px;
+    }
 }

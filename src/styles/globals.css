@@ -4,16 +4,7 @@
     margin:0;
 }
 
-html{
-    overflow: hidden;
-}
-
 body{
-    position:relative;
-    top:0;
-    bottom: 0;
-    right: 0;
-    left: 0;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -23,7 +14,7 @@ ul{
 
 h1, h2, h3{
     font-weight: normal;
-    font-size:1em;
+    font-size:1rem;
 }
 
 a {

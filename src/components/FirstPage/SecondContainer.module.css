@@ -7,109 +7,145 @@
     bottom: 0;
     right: 0;
     left: 0;
-    display: grid;
-    grid-template: 100px 1fr 1fr / 1fr;
-}
-
-.secondContainer>section:nth-child(2){
-    display: flex;
-    gap:80px;
-    grid-row: 3/4;
-    place-self: center center;
-    margin-bottom: 50px;
-}
-
-.head{
     display: flex;
     flex-direction: column;
+    gap:max(9vw);
     align-items: center;
-    gap:10px;
-    place-self: center center;
+    justify-content: center;
 }
 
 .secondContainer>section:nth-child(1){
     grid-row: 2/3;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:50px;
-    position: relative;
     margin-top: 50px;
+    transition: all 1s;
+}
+
+.secondContainer>section:nth-child(2){
+    display: flex;
+    gap:7vw;
+    grid-row: 3/4;
+    place-self: center center;
+    transition: all 1s;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 50px;
 }
 
 .profil{
     display: flex;
-    gap:70px;
+    gap:3.5vw;
     align-items: center;
-    justify-content: center;
 }
 
 .profil>div{
-    width:32vw;
+    width:clamp(320px, 50vw, 750px);
     display: flex;
     flex-direction: column;
-    gap:30px
+    gap:20px
 }
 
-.profil>div>h2{
+.headProfil>h2{
     font-weight: 700;
-    font-size: 28px;
+    font-size: max(1.45vw,18px);
 }
 
 .profil>div>p{
-    font-size: 17px;
+    font-size: clamp(16px, 1.5vw, 20px);
     font-weight: 300;
-    line-height: 26px;
+    line-height: 28px;
 }
 
-.profil>div>p>u{
-    text-decoration-thickness: 2px;
-    text-underline-offset:4px;
-}
-
-.profil>div>p>u:hover{
-    text-decoration-color: #61DBFB;
+.profil>div>p>span{
+    color:#61DBFB;
 }
 
 .profil>img{
     border-radius: 50%;
-    height:300px;
+    height:max(13vw,160px);
     width: auto;
     transition: transform 1.5s;
 }
 
-
-.logo{
+.headProfil>div{
     display: flex;
-    position: relative;
-    width: 100vw;
-}
-
-.logo>div{
-    display: flex;
-    gap:50px;
-    width:30vw;
-    height:50px;
-}
-
-.profil>div>div{
-    display: flex;
-    width: 32vw;
+    width: 27px;
     overflow: hidden;
     align-self: center;
 }
 
+.headProfil{
+    display: flex;
+    gap:10px;
+    align-items: center;
+}
+
 .scrollLogo{
     white-space: nowrap;
-    animation: defil 15s linear infinite;
+    animation: defil 10s steps(8, end) infinite;
     display: flex;
-    gap: 10px;
     max-height: 40px;
-    font-size: 9.5vw;
 }
 
 @keyframes defil {
     0%{transform: translateX(-100%);}
     100%{transform: translateX(0%);}
+}
+
+@media (max-width:1200px) {
+    .secondContainer{
+        gap:150px;
+    }
+}
+
+@media (max-width:1000px) {
+    .secondContainer>section:nth-child(1){
+        margin-top: 100px;
+    }
+}
+
+@media (max-width:900px) {
+
+    .profil{
+        flex-direction: column;
+    }
+
+    .profil>div{
+        align-items: center;
+        gap:30px
+    }
+
+    .profil>div>p{
+        width: 70vw;
+        text-align: center;
+    }
+
+    .secondContainer{
+        height: auto;
+        gap:100px;
+        scroll-margin: 70px;
+    }
+}
+
+@media (max-width:500px) {
+    .profil>div>p{
+        width: 80vw;
+        text-align:left;
+    }
+
+    .secondContainer>section:nth-child(1){
+        margin-top: 80px;
+    }
+
+    .secondContainer>section:nth-child(2){
+        gap: 70px;
+    }
+
+    .secondContainer{
+        height: auto;
+        gap:70px;
+        scroll-margin: 30px;
+    }
 }

@@ -23,8 +23,8 @@ export default function Home() {
   function isMoving (e:any) {
     if (!isFlashLight) return
     const lux = document.querySelector(".Home_lux__le22f") as HTMLElement
-    lux.style.top = `${e.pageY-125}px`;
-    lux.style.left = `${e.pageX-125}px`;
+    lux.style.top = `calc(${e.pageY}px - 5.5vw)`;
+    lux.style.left = `calc(${e.pageX}px - 5.5vw)`;
     lux.style.backgroundColor = 'rgba(255,255,255,1)';
     lux.style.boxShadow = '0 0 30px 34px white'
   }
@@ -46,7 +46,7 @@ export default function Home() {
       <div className={styles.sail} onMouseMove={e => isMoving(e)} style={isFlashLight ? undefined : divStyle.reverseBG}>
           <div className={styles.lux} style={isFlashLight ? undefined : divStyle.noOpacity}>
             <div className={styles.myElement}>
-                <h1>WEB DEVELOPPEUR</h1>
+                <h1>DEVELOPPEUR WEB</h1>
                 <footer className={styles.turnLight}>
                   <div className={styles.turnSpan}>
                     <span>Allumez la lumière !</span>
@@ -61,7 +61,7 @@ export default function Home() {
                       src={Light}
                       alt=''
                       className={styles.light}
-                    />
+                      />
                   </button>
                 </footer>
             </div>

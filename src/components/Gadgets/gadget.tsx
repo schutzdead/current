@@ -8,7 +8,9 @@ import Node from '../../../public/assets/LogoLanguage/node.svg'
 import TS from '../../../public/assets/LogoLanguage/ts.svg'
 import Prisma from '../../../public/assets/LogoLanguage/prisma.svg'
 import Next from '../../../public/assets/LogoLanguage/next.svg'
-import ts from 'typescript'
+import { carouselData } from '../Modal/data'
+import { useEffect, useRef, useState } from 'react'
+
 
 type card = {
     image:StaticImageData,
@@ -16,16 +18,9 @@ type card = {
     description:string,
 }
 
-type language = {
-    image:StaticImageData,
-    title:string,
-}
-
-
 export function Card ({image, title, description}:card) {
-
     return (
-        <div    className={styles.container}>
+        <div className={styles.container}>
             <div className={styles.top}>
                 <div    className={styles.pictureFrame}>
                     <Image
@@ -35,7 +30,7 @@ export function Card ({image, title, description}:card) {
                 </div>
                 <h1>{title}</h1>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur, assumenda?</p>
+            <p>{description}</p>
         </div>
     )
 }
@@ -54,3 +49,55 @@ export function Language () {
         </span>
     )
 } 
+
+export function Projects ({image, text, canva, setWhatProject, id,  setDisplayScreen}:{ setDisplayScreen:any,id:number,canva:any, image:any, text:string, setWhatProject:any}) {
+
+    const majProject = (e:any) => {
+        setWhatProject(carouselData[id])
+        setDisplayScreen(true)
+        const wrapper = document.querySelector("#wrapper") as HTMLElement
+        const docContainer = document.querySelector("#project") as HTMLElement
+        const body:any = document.querySelector("body")
+        wrapper.setAttribute("style", "overflow:initial")
+        window.scrollTo(0, document.body.scrollHeight);
+        body.setAttribute("style", "overflow:hidden")
+    }
+    
+    return(
+        <div className={styles.containerProject}>
+            <div className={styles.project} onClick={(e) => {majProject(e)}} id='project'
+                style={{backgroundImage: `linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 0)), url('${image.src}')`}}        
+            >
+                <div>
+                    <div className={styles.techUsed}>
+                        {canva}
+                    </div>
+                    <span>{text}</span>
+                </div>
+            </div>
+        </div>
+        
+    )
+}
+
+export function FirstCanva () {
+    return (
+        <>
+            <Image src={React} alt='' />
+            <Image src={TS} alt='' />
+            <Image src={CSS} alt='' />
+            <Image src={Next} alt='' />
+        </>
+    )
+}
+
+export function SecondCanva () {
+    return (
+        <>
+            <Image src={JS} alt='' />
+            <Image src={TS} alt='' />
+            <Image src={CSS} alt='' />
+            <Image src={HTML} alt='' />
+        </>
+    )
+}
