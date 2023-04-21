@@ -24,7 +24,7 @@ import { BSLEnable } from '@/components/Modal/modal'
 export default function FirstPage () {
     
     useEffect(() => {
-    BSLEnable()
+        BSLEnable()
     },[])
 
     const[whatProject, setWhatProject] = useState(carouselData[1])

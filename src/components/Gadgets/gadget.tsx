@@ -64,7 +64,8 @@ export const Projects = memo(function projects ({image, text, canva, setWhatProj
         const wrapper = document.querySelector("#wrapper") as HTMLElement
         wrapper.setAttribute("style", "overflow:initial")
         window.scrollTo(0, document.body.scrollHeight);
-        BSLDisable()
+        const body = document.querySelector('body') as HTMLElement;
+        body.setAttribute("style", "overflow:hidden")
     }
     
     const [isAppear, setIsAppear] = useState(false);

@@ -46,6 +46,7 @@ export default function Home() {
   }
 
   function turnOn() {
+    BSLEnable()
     setIsFlashLight(false)
   }
 

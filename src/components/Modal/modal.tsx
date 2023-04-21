@@ -32,8 +32,9 @@ export const Modal = memo(function modal ({data,setDisplayScreen}:{setDisplayScr
         setDisplayScreen(false)
         setCarousel(0)
         const wrapper = document.querySelector("#wrapper") as HTMLElement
+        const body:any = document.querySelector("body")
         wrapper.setAttribute("style", "overflow-y:scroll;overflow-x:hidden")
-        BSLEnable()
+        body.setAttribute("style", "overflow:initial")
     }
 
     return(
