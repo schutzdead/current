@@ -98,7 +98,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap:15px
+    gap:15px;
+    transition: opacity 1s;
 }
 
 .techUsed{
@@ -128,16 +129,16 @@
 
 @media (max-width:500px) {
 
+    .container:hover .pictureFrame{
+        transform: rotate(0);
+    }
+
     .container:hover{
-        margin-top:0px;
+        transform: translateY(0px);
     }
 
     .container:hover .pictureFrame{
         transform:none;
-    }
-
-    .container{
-        padding:0;
     }
 
     .container>p{

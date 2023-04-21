@@ -35,6 +35,12 @@
     overflow: hidden;
     height: 100vh;
     width: 100vw;
+    animation: 500ms modal;
+}
+
+@keyframes modal {
+    from{opacity: 0}
+    to{opacity: 1}
 }
 
 @media (max-width:1600px) {

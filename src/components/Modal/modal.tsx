@@ -3,7 +3,13 @@ import Image from 'next/image'
 import Left from '../../../public/assets/leftArrow.svg'
 import Close from '../../../public/assets/blackClose.svg'
 import Right from '../../../public/assets/rightArrow.svg'
-import { useEffect, useState } from 'react'
+import { memo, useEffect, useState } from 'react'
+import * as BSL from 'body-scroll-lock';
+
+export function BSLEnable () {
+    const body = document.querySelector('body') as HTMLElement;
+    BSL.enableBodyScroll(body)
+}
 
 export function Modal ({data,setDisplayScreen}:{setDisplayScreen:any, data:any}) {
 
@@ -28,6 +34,7 @@ export function Modal ({data,setDisplayScreen}:{setDisplayScreen:any, data:any})
         const wrapper = document.querySelector("#wrapper") as HTMLElement
         const body:any = document.querySelector("body")
         wrapper.setAttribute("style", "overflow-y:scroll;overflow-x:hidden")
+        BSLEnable()
         body.setAttribute("style", "overflow:initial")
     }
 

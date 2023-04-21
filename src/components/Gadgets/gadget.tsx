@@ -9,6 +9,8 @@ import TS from '../../../public/assets/LogoLanguage/ts.svg'
 import Prisma from '../../../public/assets/LogoLanguage/prisma.svg'
 import Next from '../../../public/assets/LogoLanguage/next.svg'
 import { carouselData } from '../Modal/data'
+import { memo, useEffect, useRef, useState } from 'react'
+import * as BSL from 'body-scroll-lock';
 
 type card = {
     image:StaticImageData,
@@ -16,7 +18,12 @@ type card = {
     description:string,
 }
 
-export function Card ({image, title, description}:card) {
+export function BSLDisable () {
+    const body = document.querySelector('body') as HTMLElement;
+    BSL.disableBodyScroll(body)
+}
+
+export const Card = memo(function card ({image, title, description}:card) {
     return (
         <div className={styles.container}>
             <div className={styles.top}>
@@ -31,9 +38,9 @@ export function Card ({image, title, description}:card) {
             <p>{description}</p>
         </div>
     )
-}
+})
 
-export function Language () {
+export const Language = memo(function language () {
     return (
         <span className={styles.containerLogo}>
             <Image src={Next} alt='' />
@@ -46,27 +53,47 @@ export function Language () {
             <Image src={Node} alt='' />
         </span>
     )
-} 
+})
 
-export function Projects ({image, text, canva, setWhatProject, id,  setDisplayScreen}:{ setDisplayScreen:any,id:number,canva:any, image:any, text:string, setWhatProject:any}) {
+export const Projects = memo(function projects ({image, text, canva, setWhatProject, id,  setDisplayScreen}:{ setDisplayScreen:any,id:number,canva:any, image:any, text:string, setWhatProject:any}) {
 
-    const majProject = (e:any) => {
+    const majProject = () => {
         setWhatProject(carouselData[id])
         setDisplayScreen(true)
         const wrapper = document.querySelector("#wrapper") as HTMLElement
-        const docContainer = document.querySelector("#project") as HTMLElement
         const body:any = document.querySelector("body")
         wrapper.setAttribute("style", "overflow:initial")
         window.scrollTo(0, document.body.scrollHeight);
+        BSLDisable()
         body.setAttribute("style", "overflow:hidden")
     }
     
+    const [isAppear, setIsAppear] = useState(false);
+    const ref:any = useRef(null);
+
+    useEffect(() => {
+        if(innerWidth>600){
+        }
+    })
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if(innerWidth>600) return  
+                setIsAppear(entry.isIntersecting);
+            },
+            {threshold:0.99}
+          );
+          observer.observe(ref.current);
+          return () => observer.disconnect();
+    }, [isAppear]);
+
     return(
         <div className={styles.containerProject}>
-            <div className={styles.project} onClick={(e) => {majProject(e)}} id='project'
+            <div className={styles.project} onClick={majProject} id='project' onMouseEnter={() => setIsAppear(true)} onMouseLeave={() => setIsAppear(false)}
                 style={{backgroundImage: `linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 0)), url('${image.src}')`}}        
             >
-                <div>
+                <div ref={ref} style={isAppear ? {opacity:1} : {opacity:0}}>
                     <div className={styles.techUsed}>
                         {canva}
                     </div>
@@ -76,9 +103,9 @@ export function Projects ({image, text, canva, setWhatProject, id,  setDisplaySc
         </div>
         
     )
-}
+})
 
-export function FirstCanva () {
+export const FirstCanva = memo(function firstCanva () {
     return (
         <>
             <Image src={React} alt='' />
@@ -87,9 +114,9 @@ export function FirstCanva () {
             <Image src={Next} alt='' />
         </>
     )
-}
+})
 
-export function SecondCanva () {
+export const SecondCanva = memo(function secondCanva () {
     return (
         <>
             <Image src={JS} alt='' />
@@ -98,4 +125,4 @@ export function SecondCanva () {
             <Image src={HTML} alt='' />
         </>
     )
-}
+})

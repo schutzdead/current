@@ -131,15 +131,13 @@
 }
 
 .contact{
-    position: absolute;
-    right:200px;
-    top:110px;
-    height: 100px;
-    width: 260px;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(2px);
+    position: fixed;  
+    top:0;
+    left: 0;
+    height:100px;
+    width: 100%;
+    background-color:  #262626;
     color: white;
-    border-radius: 5px;
     font-size: 18px;
     font-weight: 400;
     display: flex;
@@ -148,7 +146,6 @@
     gap:5px;
     justify-content: center;
     animation:1s contact;
-    mix-blend-mode: difference;
 }
 
 .contact>span{
@@ -157,18 +154,18 @@
     margin-right: 10px;
 }
 
+@keyframes contact {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 .contact>img{
-    height: 20px;
+    height: 25px;
     width: auto;
     cursor: pointer;
     position: absolute;
-    top:10px;
-    right: 10px;
-}
-
-@keyframes contact {
-    from { right:-50px; opacity: 0; }
-    to   { right:200px; opacity: 1; }
+    top:15px;
+    right: 20px;
 }
 
 @keyframes typing-erase {
@@ -226,27 +223,6 @@
     .navAbsolute>ul>li{
         text-decoration: none;
     }
-
-    .contact{
-        position: fixed;  
-        background-color:  #262626;
-        mix-blend-mode: normal;
-        height:130px;
-        top:0;
-        left: 0;
-        width: 100%;
-    }
-
-    .contact>img{
-        height: 25px;
-        top:15px;
-        right: 20px;
-    }
-
-    @keyframes contact {
-        from { opacity: 0; }
-        to   { opacity: 1; }
-    }
 }
 
 @media (max-width:900px) {
@@ -302,7 +278,6 @@
     }
 
     .contact{
-        height:100px;
         font-size: 14px;
       }
 }

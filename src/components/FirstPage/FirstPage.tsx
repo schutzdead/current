@@ -1,10 +1,9 @@
 import Image from 'next/image'
-import { useEffect, useRef, useState } from 'react'
+import { memo, useEffect, useRef, useState } from 'react'
 import styles from './FirstPage.module.css'
 import style from './SecondContainer.module.css'
 import styl from './ThirdContainer.module.css'
 import SEO from '../../../public/assets/SEO.svg'
-import Cross from '../../../public/assets/close.svg'
 import Computer from '../../../public/assets/computer.svg'
 import Visibility from '../../../public/assets/visibility.svg'
 import Experience from '../../../public/assets/experience.svg'
@@ -19,19 +18,15 @@ import BGFirstContainer from '../../../public/assets/backgroundMain.webp'
 import { Card, Language, Projects, FirstCanva ,SecondCanva } from '../Gadgets/gadget'
 import { Modal } from '../Modal/modal'
 import { carouselData } from '../Modal/data'
-import Link from 'next/link'
+import { NavBar } from '../NavBar/NavBar'
 
 export default function FirstPage () {
-
-
 
     const[whatProject, setWhatProject] = useState(carouselData[1])
     const[displayScreen, setDisplayScreen] = useState(false)
 
     const [delayCenter, setDelayCenter] = useState(true)
-    const [delayHeader, setDelayHeader] = useState(true)
-    
-    const [contact, setContact] = useState(false)
+
     
     const [isIntersecting, setIsIntersecting] = useState(false);
     const ref:any = useRef(null);
@@ -57,10 +52,6 @@ export default function FirstPage () {
     setTimeout(() => {
         setDelayCenter(false)
     }, 1000)
-
-    setTimeout(() => {
-        setDelayHeader(false)
-    }, 2000)
    
     const divStyle = {
         on:{ backgroundImage: `linear-gradient(rgb(0, 0, 0, 0.1), rgb(0, 0, 0, 0.1)), url(${BGFirstContainer.src})`,
@@ -69,28 +60,11 @@ export default function FirstPage () {
               color:"white" }
     }
 
+
+
     return (
         <>
-        <nav className={styles.navAbsolute}                        
-             style={delayHeader
-                    ? { color:"transparent" }
-                    : { color:"white" }}>
-            <p><Link href="#accueil">LUCAS<span>SOUBRY</span></Link></p>
-            <ul>
-                <Link href="#services"><li>Services</li></Link>
-                <Link href="#portfolio"><li>Portfolio</li></Link>
-                <li onClick={() => setContact(true)}>Contact</li>
-            </ul>
-            <div className={styles.contact}
-            style={contact ? {display:"flex"} : {display:"none"}}>
-                    <Image
-                        src={Cross}
-                        alt=''
-                        onClick={() => setContact(false)} />
-                    <span>+33 6 27 83 10 46</span>
-                    <span>lucas.soubry@hotmail.fr</span>
-            </div>
-        </nav>
+            <NavBar />
             <div className={styles.wrapper} id='wrapper'>
                 <div    className={styles.container}
                         id='accueil'
@@ -114,11 +88,8 @@ export default function FirstPage () {
                     <section ref={ref} style={isIntersecting 
                              ? {opacity:1, transform:"translateX(0px)"} 
                              : {opacity:0, transform:"translateX(-100px)"}}>
-                        <div className={style.profil} onClick={() => console.log(whatProject)}
-                        >
-                            <Image
-                            src={Profil}
-                            alt='' />
+                        <div className={style.profil}>
+                            <ProfilImage />
                             <div>
                                 <div className={style.headProfil}>
                                     <div>
@@ -167,6 +138,10 @@ export default function FirstPage () {
     )
 }
 
-
-
-
+const ProfilImage = memo(function profilImage () {
+    return(
+        <Image
+        src={Profil}
+        alt='' />
+    )
+})

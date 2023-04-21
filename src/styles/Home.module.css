@@ -58,7 +58,7 @@
     font-weight: 600;
     cursor:pointer;
     font-size: 2vh; 
-    gap:30px
+    gap:30px;
 }
 
 .switch{
@@ -97,5 +97,10 @@
 @media (max-width: 500px) {
     .turnSpan{
         padding-left: 180px;
+    }
+
+    .turnLight{
+        margin-bottom: 80px;
+        cursor:none;
     }
 }
