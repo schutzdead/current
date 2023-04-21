@@ -32,9 +32,9 @@ export const carouselData:any = [
         picture:[Boucher1, Boucher2, Boucher3, Boucher4, Boucher5, Boucher7],
         description:[
             "Page d'accueil, conceptualisation du design, de l'identité visuelle et des animations.",
-            "Banque d'images personnelles, interface e-commerce : catégorie et ajout/suppression de produits.",
+            "Banque d'images personnelles, interface e-commerce : catégorie + ajout/suppression de produits.",
             "Pré-panier original, mise à jour du panier possible.",
-            "Récapitulatif et paiement, mise à jour du panier encore possible.",
+            "Récapitulatif et paiement.",
             "Données pré-sécurisées avec patterns, design de validation.",
             "Design 100% responsive (exemple : mobile)."
         ]
@@ -43,17 +43,17 @@ export const carouselData:any = [
         title:"Application de dessin",
         picture:[Etch1, Etch2, Etch3],
         description:[
-            "Parmi les options : extension de la zone de dessin, mode couleur aléatoire, ajout/suppression de la grille... .",
-            "Parmi les options : extension de la zone de dessin, mode couleur aléatoire, ajout/suppression de la grille... .",
-            "Parmi les options : extension de la zone de dessin, mode couleur aléatoire, ajout/suppression de la grille... .",
+            "Feature adaptées au besoin : extension de la zone de dessin, mode couleur aléatoire, ajout/suppression de la grille... .",
+            "Feature adaptées au besoin : extension de la zone de dessin, mode couleur aléatoire, ajout/suppression de la grille... .",
+            "Feature adaptées au besoin : extension de la zone de dessin, mode couleur aléatoire, ajout/suppression de la grille... .",
         ]
     },
     {
         title:"Calculatrice Apple (reproduction)",
         picture:[Calcul1, Calcul2],
         description:[
-            "Projet personnel : reproduction détaillée de la calculatrice des téléphones Apple, bouton fonctionnels, utilisation du clavier possible.",
-            "Projet personnel : reproduction détaillée de la calculatrice des téléphones Apple, bouton fonctionnels, utilisation du clavier possible.",
+            "Projet personnel : reproduction détaillée de la calculatrice des téléphones Apple, boutons fonctionnels, utilisation du clavier possible.",
+            "Projet personnel : reproduction détaillée de la calculatrice des téléphones Apple, boutons fonctionnels, utilisation du clavier possible.",
         ]
     },
     {
@@ -68,8 +68,8 @@ export const carouselData:any = [
         picture:[Form1, Form2, Form3],
         description:[
             "Création sur-mesure d'un formulaire, amélioration de l'expérience utilisateur.",
-            "Questions optionnelles : travail graphique, possibilité de les déplacer sur le page.",
-            "Données pré-sécurisées avec patterns.",
+            "Questions optionnelles : travail graphique, modulable sur la page.",
+            "Données pré-sécurisées avec patterns, design de validation.",
         ]
     }
 ]
