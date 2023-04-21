@@ -3,10 +3,17 @@ import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 import Light from '../../public/assets/FlashLight/light1.svg'
 import newArrow from '../../public/assets/FlashLight/curved-arrow.png'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import FirstPage from '@/components/FirstPage/FirstPage'
+import { BSLDisable } from '@/components/Gadgets/gadget'
+import { BSLEnable } from '@/components/Modal/modal'
 
 export default function Home() {
+
+  useEffect(() => {
+    BSLDisable()
+    return () => BSLEnable();
+  },[])
 
   const [isFlashLight, setIsFlashLight] = useState<boolean>(true)
 

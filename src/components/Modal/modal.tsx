@@ -8,13 +8,13 @@ import * as BSL from 'body-scroll-lock';
 
 export function BSLEnable () {
     const body = document.querySelector('body') as HTMLElement;
+    body.setAttribute("style", "overflow:initial")
     BSL.enableBodyScroll(body)
 }
 
-export function Modal ({data,setDisplayScreen}:{setDisplayScreen:any, data:any}) {
+export const Modal = memo(function modal ({data,setDisplayScreen}:{setDisplayScreen:any, data:any}) {
 
     let [carousel, setCarousel] = useState(0)
-    let [count, setCount] = useState(".")
     const [arrowDisplay, setArrowDisplay] = useState(true)
 
     useEffect(() => {
@@ -32,10 +32,8 @@ export function Modal ({data,setDisplayScreen}:{setDisplayScreen:any, data:any})
         setDisplayScreen(false)
         setCarousel(0)
         const wrapper = document.querySelector("#wrapper") as HTMLElement
-        const body:any = document.querySelector("body")
         wrapper.setAttribute("style", "overflow-y:scroll;overflow-x:hidden")
         BSLEnable()
-        body.setAttribute("style", "overflow:initial")
     }
 
     return(
@@ -68,4 +66,4 @@ export function Modal ({data,setDisplayScreen}:{setDisplayScreen:any, data:any})
             </div>
         </section>
     )
-}
+})

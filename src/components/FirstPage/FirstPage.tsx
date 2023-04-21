@@ -60,9 +60,7 @@ export default function FirstPage () {
               color:"white" }
     }
 
-
-
-    return (
+        return (
         <>
             <NavBar />
             <div className={styles.wrapper} id='wrapper'>
@@ -129,7 +127,7 @@ export default function FirstPage () {
                         <Projects setDisplayScreen={setDisplayScreen} id={4} setWhatProject={setWhatProject} image={Sushi} text={"Boutique en ligne (Restauration)"} canva={<FirstCanva />}/>
                         <Projects setDisplayScreen={setDisplayScreen} id={5} setWhatProject={setWhatProject} image={Form} text={"Formulaire sur-mesure"} canva={<SecondCanva />}/>
                     </div>
-                    <div style={displayScreen ? {display:"unset"} : {display:"none"}}>
+                    <div style={displayScreen ? {display:"unset"} : {display:"none"}} className={styl.modalContainer}>
                         <Modal data={whatProject} setDisplayScreen={setDisplayScreen}/>
                     </div>
                 </div>

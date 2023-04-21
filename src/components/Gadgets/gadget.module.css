@@ -148,4 +148,19 @@
     .project>div>span{
         font-size: 17px;
     }
+
+    .project>div{
+        opacity:unset;
+        cursor: none;
+        background-color: rgb(0, 0, 0, 0.5);
+    }
+    
+    .containerProject:hover .project{
+        transform: scale(1);
+    }
+    
+    .containerProject:hover .project>div{
+        opacity: unset;
+    }
+    
 }

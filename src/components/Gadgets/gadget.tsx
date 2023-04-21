@@ -20,6 +20,7 @@ type card = {
 
 export function BSLDisable () {
     const body = document.querySelector('body') as HTMLElement;
+    body.setAttribute("style", "overflow:hidden")
     BSL.disableBodyScroll(body)
 }
 
@@ -61,11 +62,9 @@ export const Projects = memo(function projects ({image, text, canva, setWhatProj
         setWhatProject(carouselData[id])
         setDisplayScreen(true)
         const wrapper = document.querySelector("#wrapper") as HTMLElement
-        const body:any = document.querySelector("body")
         wrapper.setAttribute("style", "overflow:initial")
         window.scrollTo(0, document.body.scrollHeight);
         BSLDisable()
-        body.setAttribute("style", "overflow:hidden")
     }
     
     const [isAppear, setIsAppear] = useState(false);
@@ -89,7 +88,7 @@ export const Projects = memo(function projects ({image, text, canva, setWhatProj
     }, [isAppear]);
 
     return(
-        <div className={styles.containerProject}>
+        <div className={styles.containerProject} onTouchCancel={e => {e.preventDefault}}>
             <div className={styles.project} onClick={majProject} id='project' onMouseEnter={() => setIsAppear(true)} onMouseLeave={() => setIsAppear(false)}
                 style={{backgroundImage: `linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 0)), url('${image.src}')`}}        
             >
