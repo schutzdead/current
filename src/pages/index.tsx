@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 import Light from '../../public/assets/FlashLight/light1.svg'
+import Swipe from '../../public/assets/finger.svg'
 import newArrow from '../../public/assets/FlashLight/curved-arrow.png'
 import { useEffect, useState } from 'react'
 import FirstPage from '@/components/FirstPage/FirstPage'
@@ -60,9 +61,17 @@ export default function Home() {
     return (
       <>
         <IsHead />
-        <div className={styles.sail} onTouchMove={e => isFingerMoving(e)} onMouseMove={e => isMoving(e)} style={isFlashLight ? undefined : divStyle.reverseBG}>
+        <div className={styles.sail} onTouchMove={e => isFingerMoving(e)} onTouchStart={() => {
+              const finger:any = document.querySelector(".Home_myElement__ZqS0g>img")
+              finger.style.display = "none";
+        }} onMouseMove={e => isMoving(e)} style={isFlashLight ? undefined : divStyle.reverseBG}>
           <div className={styles.lux} style={isFlashLight ? undefined : divStyle.noOpacity}>
             <div className={styles.myElement}>
+              <Image
+                    src={Swipe}
+                    alt=''
+                    className={styles.swipe}
+              />
               <h1>DEVELOPPEUR WEB</h1>
               <footer className={styles.turnLight}>
                 <div className={styles.turnSpan}>

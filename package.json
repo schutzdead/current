@@ -2,7 +2,7 @@
   "name": "lucassoubry",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lucassoubry.fr/",
+  "homepage": "lucassoubry.fr",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

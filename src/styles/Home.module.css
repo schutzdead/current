@@ -72,10 +72,24 @@
     justify-content: center;
 }
 
+.swipe{
+    position: absolute;
+    top:calc(50% - 15px);
+    left: calc(50% + 15px);
+    animation: swipe 2s infinite;
+    display: none;
+}
+
 .light {
     animation:
         1.5s infinite alternate opac,
         1.5s infinite alternate zoom
+}
+
+@keyframes swipe {
+    from { opacity: 1; left: calc(50% + 15px)}
+    50% { opacity: 1; left: calc(50% - 30px)}
+    to { opacity: 0; left: calc(50% + 15px)}
 }
 
 @keyframes opac {
@@ -97,6 +111,10 @@
 @media (max-width: 500px) {
     .turnSpan{
         padding-left: 180px;
+    }
+
+    .swipe{
+        display: unset;
     }
 
     .turnLight{
