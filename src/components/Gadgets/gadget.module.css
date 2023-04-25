@@ -121,7 +121,7 @@
     opacity: 1;
 }
 
-@media (max-width:1000px) {
+@media (max-width:1000px), (max-height:900px) {
     .containerProject{
         height: 250px;
     }

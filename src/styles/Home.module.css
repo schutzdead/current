@@ -122,3 +122,18 @@
         cursor:none;
     }
 }
+
+@media (max-height: 700px) and (min-height: 550px) {
+    .myElement{
+        grid-template: 1fr 2fr / 1fr;
+        gap:20px
+    }
+
+    .myElement>h1{
+        margin-top: 30px;
+    }
+
+    .turnSpan{
+        padding-left: 180px;
+    }
+}

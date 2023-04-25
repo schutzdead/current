@@ -45,7 +45,7 @@ export default function FirstPage () {
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                if(innerWidth<1000) return            
+                if(innerWidth<1000 || innerHeight<900)  return            
                 setIsIntersecting(entry.isIntersecting);
             },
           );

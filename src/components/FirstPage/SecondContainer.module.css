@@ -94,13 +94,13 @@
     100%{transform: translateX(0%);}
 }
 
-@media (max-width:1000px) {
+@media (max-width:1000px), (max-height:900px) {
     .secondContainer{
         scroll-margin: 60px;
     }
 }
 
-@media (max-width:900px) {
+@media (max-width:900px), (max-height:900px) {
 
     .profil{
         flex-direction: column;
@@ -119,7 +119,7 @@
     .secondContainer{
         height: auto;
         gap:100px;
-        scroll-margin: 70px;
+        scroll-margin: 100px;
     }
 }
 
